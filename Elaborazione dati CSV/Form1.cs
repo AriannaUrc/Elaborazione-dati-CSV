@@ -34,8 +34,7 @@ namespace Elaborazione_dati_CSV
         {
             InitializeComponent();
             p = new dato();
-            FileName = "dati.csv";
-            NomeTemp = "datiTemp.csv";
+            FileName = "UrciuoliArianna.csv";
             recordLength = 62;
             Aggiungi_campi();
         }
@@ -80,7 +79,7 @@ namespace Elaborazione_dati_CSV
             byte[] br;
 
             Random rand = new Random();
-            var f = new FileStream("dati.csv", FileMode.Open, FileAccess.ReadWrite);
+            var f = new FileStream(FileName, FileMode.Open, FileAccess.ReadWrite);
             BinaryReader reader = new BinaryReader(f);
             BinaryWriter writer = new BinaryWriter(f);
 
@@ -88,8 +87,9 @@ namespace Elaborazione_dati_CSV
 
             string[] words = new string[6];
 
+            br = reader.ReadBytes(74);
 
-            while (f.Position < f.Length - 2) //????????????
+            while (f.Position < f.Length - 2) 
             {
                 br = reader.ReadBytes(recordLength);
                 //converte in stringa
