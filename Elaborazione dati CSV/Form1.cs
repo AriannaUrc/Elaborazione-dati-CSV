@@ -35,6 +35,7 @@ namespace Elaborazione_dati_CSV
             InitializeComponent();
             p = new dato();
             FileName = "UrciuoliArianna.csv";
+            NomeTemp = "temp.csv";
             recordLength = 62;
             Aggiungi_campi();
         }
@@ -60,7 +61,7 @@ namespace Elaborazione_dati_CSV
         //format stringa dato "dato"
         public string FileString(dato p)
         {
-            return (p.nome + ";" + p.link + ";" + p.latitudine + ";" + p.longitudine + ";" + p.cancellato + ";").PadRight(60);
+            return (p.nome + ";" + p.link + ";" + p.latitudine + ";" + p.longitudine + ";" +p.miovalore + ";" + p.cancellato + ";").PadRight(60);
         }
 
 
@@ -79,23 +80,22 @@ namespace Elaborazione_dati_CSV
             byte[] br;
 
             Random rand = new Random();
-            var f = new FileStream(FileName, FileMode.Open, FileAccess.ReadWrite);
-            BinaryReader reader = new BinaryReader(f);
-            BinaryWriter writer = new BinaryWriter(f);
+            StreamReader reader = new StreamReader(FileName);
+            StreamWriter writer = new StreamWriter(NomeTemp, true);
 
             char limite = ';';
+            string[] fields;
 
             string[] words = new string[6];
 
-            br = reader.ReadBytes(74);
+            line = reader.ReadLine();
+            line = reader.ReadLine();
 
-            while (f.Position < f.Length - 2) 
+            while (line != null) 
             {
-                br = reader.ReadBytes(recordLength);
-                //converte in stringa
-                line = Encoding.ASCII.GetString(br, 0, br.Length);
+                
 
-                String[] fields = line.Split(limite);
+                fields = line.Split(limite);
                 p.nome = fields[0];
                 p.link = fields[1];
                 p.latitudine = fields[2];
@@ -103,14 +103,17 @@ namespace Elaborazione_dati_CSV
                 p.miovalore = rand.Next(10, 21);
                 p.cancellato = false;
 
-                f.Seek(-recordLength, SeekOrigin.Current);
-                writer.Write(Encoding.UTF8.GetBytes(FileString(p)));
+                writer.WriteLine(FileString(p));
+
+                line = reader.ReadLine();
 
             }
 
             writer.Close();
             reader.Close();
-            f.Close();
+
+            File.Delete(FileName);
+            File.Move(NomeTemp, FileName);
         }
     }
 }
