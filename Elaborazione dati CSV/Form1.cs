@@ -180,6 +180,39 @@ namespace Elaborazione_dati_CSV
 
         }
 
+
+        public String Ricerca(string nome)
+        {
+            String line;
+
+            Random rand = new Random();
+            StreamReader reader = new StreamReader(FileName);
+
+
+            line = reader.ReadLine();
+            line = reader.ReadLine();
+
+            while (line != null)
+            {
+
+
+                p = FromString(line);
+                if (p.nome == nome)
+                {
+                    return line;
+                }
+
+                line = reader.ReadLine();
+
+            }
+
+            reader.Close();
+
+
+
+            return "Not Found";
+        }
+
         private void LunghezzaMax_Click(object sender, EventArgs e)
         {
             MessageBox.Show("la lunghezza massima è: " + ConteggioMassimo());
@@ -189,6 +222,11 @@ namespace Elaborazione_dati_CSV
         private void Padding_button_Click(object sender, EventArgs e)
         {
             Padding();
+        }
+
+        private void Cerca_button_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Ricerca(nome_textbox.Text));
         }
     }
 }
