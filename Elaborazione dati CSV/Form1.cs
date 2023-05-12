@@ -153,10 +153,42 @@ namespace Elaborazione_dati_CSV
             return lenghtMax;
         }
 
+        public void Padding()
+        {
+            String line;
+
+            Random rand = new Random();
+            StreamReader reader = new StreamReader(FileName);
+            StreamWriter writer = new StreamWriter(NomeTemp, true);
+
+            line = reader.ReadLine();
+            line = reader.ReadLine();
+
+            while (line != null)
+            {
+
+                writer.WriteLine(line.PadRight(130));
+
+                line = reader.ReadLine();
+            }
+
+            writer.Close();
+            reader.Close();
+
+            File.Delete(FileName);
+            File.Move(NomeTemp, FileName);
+
+        }
+
         private void LunghezzaMax_Click(object sender, EventArgs e)
         {
             MessageBox.Show("la lunghezza massima è: " + ConteggioMassimo());
             
+        }
+
+        private void Padding_button_Click(object sender, EventArgs e)
+        {
+            Padding();
         }
     }
 }
