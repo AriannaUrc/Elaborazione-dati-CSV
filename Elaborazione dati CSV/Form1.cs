@@ -77,7 +77,6 @@ namespace Elaborazione_dati_CSV
         public void Aggiungi_campi()
         {
             String line;
-            byte[] br;
 
             Random rand = new Random();
             StreamReader reader = new StreamReader(FileName);
@@ -114,6 +113,50 @@ namespace Elaborazione_dati_CSV
 
             File.Delete(FileName);
             File.Move(NomeTemp, FileName);
+        }
+
+
+        public int ConteggioMassimo()
+        {
+            String line;
+
+            Random rand = new Random();
+            StreamReader reader = new StreamReader(FileName);
+            StreamWriter writer = new StreamWriter(NomeTemp, true);
+            int lenghtMax;
+
+            line = reader.ReadLine();
+            line = reader.ReadLine();
+            lenghtMax = line.Length;
+
+            while (line != null)
+            {
+
+                if (lenghtMax < line.Length)
+                {
+                    lenghtMax = line.Length;
+                }
+                
+
+                writer.WriteLine(FileString(p));
+
+                line = reader.ReadLine();
+
+            }
+
+            writer.Close();
+            reader.Close();
+
+            File.Delete(FileName);
+            File.Move(NomeTemp, FileName);
+
+            return lenghtMax;
+        }
+
+        private void LunghezzaMax_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("la lunghezza massima è: " + ConteggioMassimo());
+            
         }
     }
 }

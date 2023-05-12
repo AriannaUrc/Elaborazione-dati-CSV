@@ -28,24 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.LunghezzaMax = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // LunghezzaMax
             // 
-            this.button1.Location = new System.Drawing.Point(132, 174);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.LunghezzaMax.Location = new System.Drawing.Point(132, 174);
+            this.LunghezzaMax.Name = "LunghezzaMax";
+            this.LunghezzaMax.Size = new System.Drawing.Size(100, 23);
+            this.LunghezzaMax.TabIndex = 0;
+            this.LunghezzaMax.Text = "LunghezzaMax";
+            this.LunghezzaMax.UseVisualStyleBackColor = true;
+            this.LunghezzaMax.Click += new System.EventHandler(this.LunghezzaMax_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.LunghezzaMax);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -54,7 +55,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button LunghezzaMax;
     }
 }
 
