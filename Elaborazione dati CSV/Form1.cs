@@ -154,6 +154,39 @@ namespace Elaborazione_dati_CSV
 
             Random rand = new Random();
             StreamReader reader = new StreamReader(FileName);
+            int lenghtMax;
+
+            line = reader.ReadLine();
+
+            line = reader.ReadLine();
+            lenghtMax = line.Length;
+
+            while (line != null)
+            {
+
+                if (lenghtMax < line.Length)
+                {
+                    lenghtMax = line.Length;
+                }
+
+                line = reader.ReadLine();
+
+            }
+
+
+            reader.Close();
+
+
+            return lenghtMax;
+        }
+
+
+        public void Mod(string titolo, string link, string lat, string longi, string miovalore)
+        {
+            String line;
+
+            Random rand = new Random();
+            StreamReader reader = new StreamReader(FileName);
             StreamWriter writer = new StreamWriter(NomeTemp, true);
             int lenghtMax;
 
@@ -167,9 +200,12 @@ namespace Elaborazione_dati_CSV
             while (line != null)
             {
 
-                if (lenghtMax < line.Length)
+                if (titolo == p.nome)
                 {
-                    lenghtMax = line.Length;
+                    p.link = link;
+                    p.latitudine = lat;
+                    p.longitudine = longi;
+                    p.miovalore = int.Parse(miovalore);
                 }
 
 
@@ -185,7 +221,6 @@ namespace Elaborazione_dati_CSV
             File.Delete(FileName);
             File.Move(NomeTemp, FileName);
 
-            return lenghtMax;
         }
 
         public void Padding()
@@ -283,6 +318,11 @@ namespace Elaborazione_dati_CSV
         private void Append_Click(object sender, EventArgs e)
         {
             Aggiungi(titolo_textbox.Text, link_textbox.Text, latitudine_textbox.Text, longitudine_textbox.Text, miovalore_textbox.Text);
+        }
+
+        private void Modifica_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

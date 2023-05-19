@@ -44,6 +44,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.Append = new System.Windows.Forms.Button();
+            this.Modifica = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.miovalore_mod_textbox = new System.Windows.Forms.TextBox();
+            this.longitudine_mod_textbox = new System.Windows.Forms.TextBox();
+            this.latitudine_mod_textbox = new System.Windows.Forms.TextBox();
+            this.link_mod_textbox = new System.Windows.Forms.TextBox();
+            this.Titolo_mod_textbox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // LunghezzaMax
@@ -183,11 +194,112 @@
             this.Append.UseVisualStyleBackColor = true;
             this.Append.Click += new System.EventHandler(this.Append_Click);
             // 
+            // Modifica
+            // 
+            this.Modifica.Location = new System.Drawing.Point(597, 385);
+            this.Modifica.Name = "Modifica";
+            this.Modifica.Size = new System.Drawing.Size(76, 23);
+            this.Modifica.TabIndex = 26;
+            this.Modifica.Text = "Modifica";
+            this.Modifica.UseVisualStyleBackColor = true;
+            this.Modifica.Click += new System.EventHandler(this.Modifica_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(499, 372);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 13);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Miovalore";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(410, 372);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(62, 13);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Longitudine";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(328, 372);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 13);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Latitudine";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(245, 372);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(27, 13);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Link";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(151, 372);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(33, 13);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Titolo";
+            // 
+            // miovalore_mod_textbox
+            // 
+            this.miovalore_mod_textbox.Location = new System.Drawing.Point(491, 388);
+            this.miovalore_mod_textbox.Name = "miovalore_mod_textbox";
+            this.miovalore_mod_textbox.Size = new System.Drawing.Size(70, 20);
+            this.miovalore_mod_textbox.TabIndex = 20;
+            // 
+            // longitudine_mod_textbox
+            // 
+            this.longitudine_mod_textbox.Location = new System.Drawing.Point(403, 388);
+            this.longitudine_mod_textbox.Name = "longitudine_mod_textbox";
+            this.longitudine_mod_textbox.Size = new System.Drawing.Size(70, 20);
+            this.longitudine_mod_textbox.TabIndex = 19;
+            // 
+            // latitudine_mod_textbox
+            // 
+            this.latitudine_mod_textbox.Location = new System.Drawing.Point(314, 388);
+            this.latitudine_mod_textbox.Name = "latitudine_mod_textbox";
+            this.latitudine_mod_textbox.Size = new System.Drawing.Size(70, 20);
+            this.latitudine_mod_textbox.TabIndex = 18;
+            // 
+            // link_mod_textbox
+            // 
+            this.link_mod_textbox.Location = new System.Drawing.Point(228, 388);
+            this.link_mod_textbox.Name = "link_mod_textbox";
+            this.link_mod_textbox.Size = new System.Drawing.Size(70, 20);
+            this.link_mod_textbox.TabIndex = 17;
+            // 
+            // Titolo_mod_textbox
+            // 
+            this.Titolo_mod_textbox.Location = new System.Drawing.Point(135, 388);
+            this.Titolo_mod_textbox.Name = "Titolo_mod_textbox";
+            this.Titolo_mod_textbox.Size = new System.Drawing.Size(70, 20);
+            this.Titolo_mod_textbox.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Modifica);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.miovalore_mod_textbox);
+            this.Controls.Add(this.longitudine_mod_textbox);
+            this.Controls.Add(this.latitudine_mod_textbox);
+            this.Controls.Add(this.link_mod_textbox);
+            this.Controls.Add(this.Titolo_mod_textbox);
             this.Controls.Add(this.Append);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -229,6 +341,17 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button Append;
+        private System.Windows.Forms.Button Modifica;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox miovalore_mod_textbox;
+        private System.Windows.Forms.TextBox longitudine_mod_textbox;
+        private System.Windows.Forms.TextBox latitudine_mod_textbox;
+        private System.Windows.Forms.TextBox link_mod_textbox;
+        private System.Windows.Forms.TextBox Titolo_mod_textbox;
     }
 }
 
