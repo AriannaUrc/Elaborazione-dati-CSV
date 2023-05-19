@@ -18,7 +18,7 @@ Aggiungere un record in coda; fatto
 Visualizzare dei dati mostrando tre campi significativi a scelta;
 Ricercare un record per campo chiave a scelta (se esiste, utilizzare il campo che contiene dati univoci); fatto
 Modificare un record; fatto
-Cancellare logicamente un record;
+Cancellare logicamente un record; fatto
 */
 
 
@@ -51,6 +51,37 @@ namespace Elaborazione_dati_CSV
             NomeTemp = "temp.csv";
             recordLength = 62;
             Aggiungi_campi();
+            visualizza();
+        }
+
+
+        public void visualizza()
+        {
+            String line;
+
+            Random rand = new Random();
+            StreamReader reader = new StreamReader(FileName);
+
+
+            line = reader.ReadLine();
+            line = reader.ReadLine();
+
+            while (line != null)
+            {
+
+
+                p = FromString(line);
+
+                if (p.cancellato == false)
+                output.Items.Add(p.nome + ";" + p.latitudine + ";" + p.longitudine + ";");
+
+
+                line = reader.ReadLine();
+
+            }
+
+            reader.Close();
+
         }
 
 
@@ -341,6 +372,7 @@ namespace Elaborazione_dati_CSV
         private void Padding_button_Click(object sender, EventArgs e)
         {
             Padding();
+            visualizza();
         }
 
         private void Cerca_button_Click(object sender, EventArgs e)
@@ -357,11 +389,13 @@ namespace Elaborazione_dati_CSV
         private void Append_Click(object sender, EventArgs e)
         {
             Aggiungi(titolo_textbox.Text, link_textbox.Text, latitudine_textbox.Text, longitudine_textbox.Text, miovalore_textbox.Text);
+            visualizza();
         }
 
         private void Modifica_Click(object sender, EventArgs e)
         {
             Mod(Titolo_mod_textbox.Text, link_mod_textbox.Text, latitudine_mod_textbox.Text, longitudine_mod_textbox.Text, miovalore_mod_textbox.Text);
+            visualizza();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -372,6 +406,7 @@ namespace Elaborazione_dati_CSV
         private void cancellazioneLog_Click(object sender, EventArgs e)
         {
             Canc(titolo_canc_textbox.Text);
+            visualizza();
         }
     }
 }
