@@ -17,7 +17,7 @@ inserire in ogni record un numero di spazi necessari a rendere fissa la dimensio
 Aggiungere un record in coda; fatto
 Visualizzare dei dati mostrando tre campi significativi a scelta;
 Ricercare un record per campo chiave a scelta (se esiste, utilizzare il campo che contiene dati univoci); fatto
-Modificare un record;
+Modificare un record; fatto
 Cancellare logicamente un record;
 */
 
@@ -181,6 +181,45 @@ namespace Elaborazione_dati_CSV
         }
 
 
+        public void Canc(string titolo)
+        {
+            String line;
+
+            Random rand = new Random();
+            StreamReader reader = new StreamReader(FileName);
+            StreamWriter writer = new StreamWriter(NomeTemp, true);
+            int lenghtMax;
+
+            line = reader.ReadLine();
+
+            writer.WriteLine(line);
+
+            line = reader.ReadLine();
+            lenghtMax = line.Length;
+
+            while (line != null)
+            {
+
+                if (titolo == p.nome)
+                {
+                    p.cancellato = true;
+                }
+
+
+                writer.WriteLine(FileString(p));
+
+                line = reader.ReadLine();
+
+            }
+
+            writer.Close();
+            reader.Close();
+
+            File.Delete(FileName);
+            File.Move(NomeTemp, FileName);
+
+        }
+
         public void Mod(string titolo, string link, string lat, string longi, string miovalore)
         {
             String line;
@@ -322,7 +361,17 @@ namespace Elaborazione_dati_CSV
 
         private void Modifica_Click(object sender, EventArgs e)
         {
+            Mod(Titolo_mod_textbox.Text, link_mod_textbox.Text, latitudine_mod_textbox.Text, longitudine_mod_textbox.Text, miovalore_mod_textbox.Text);
+        }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cancellazioneLog_Click(object sender, EventArgs e)
+        {
+            Canc(titolo_canc_textbox.Text);
         }
     }
 }

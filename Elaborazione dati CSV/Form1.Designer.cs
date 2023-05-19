@@ -55,6 +55,9 @@
             this.latitudine_mod_textbox = new System.Windows.Forms.TextBox();
             this.link_mod_textbox = new System.Windows.Forms.TextBox();
             this.Titolo_mod_textbox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.titolo_canc_textbox = new System.Windows.Forms.TextBox();
+            this.cancellazioneLog = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LunghezzaMax
@@ -284,11 +287,40 @@
             this.Titolo_mod_textbox.Size = new System.Drawing.Size(70, 20);
             this.Titolo_mod_textbox.TabIndex = 16;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(518, 28);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(33, 13);
+            this.label11.TabIndex = 28;
+            this.label11.Text = "Titolo";
+            // 
+            // titolo_canc_textbox
+            // 
+            this.titolo_canc_textbox.Location = new System.Drawing.Point(502, 44);
+            this.titolo_canc_textbox.Name = "titolo_canc_textbox";
+            this.titolo_canc_textbox.Size = new System.Drawing.Size(70, 20);
+            this.titolo_canc_textbox.TabIndex = 27;
+            // 
+            // cancellazioneLog
+            // 
+            this.cancellazioneLog.Location = new System.Drawing.Point(611, 44);
+            this.cancellazioneLog.Name = "cancellazioneLog";
+            this.cancellazioneLog.Size = new System.Drawing.Size(76, 23);
+            this.cancellazioneLog.TabIndex = 29;
+            this.cancellazioneLog.Text = "Cancella";
+            this.cancellazioneLog.UseVisualStyleBackColor = true;
+            this.cancellazioneLog.Click += new System.EventHandler(this.cancellazioneLog_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cancellazioneLog);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.titolo_canc_textbox);
             this.Controls.Add(this.Modifica);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -318,6 +350,7 @@
             this.Controls.Add(this.LunghezzaMax);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,6 +385,9 @@
         private System.Windows.Forms.TextBox latitudine_mod_textbox;
         private System.Windows.Forms.TextBox link_mod_textbox;
         private System.Windows.Forms.TextBox Titolo_mod_textbox;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox titolo_canc_textbox;
+        private System.Windows.Forms.Button cancellazioneLog;
     }
 }
 
