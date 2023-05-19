@@ -9,6 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
+
+/*Aggiungere, in coda ad ogni record, un campo chiamato "miovalore", contenente un numero casuale compreso tra 10<=X<=20 ed un campo per marcare la cancellazione logica; fatto
+contare il numero dei campi che compongono il record. fatto
+calcolare la lunghezza massima dei record presenti (avanzato: indicando anche la lunghezza massima di ogni campo); fatto
+inserire in ogni record un numero di spazi necessari a rendere fissa la dimensione di tutti i record, senza perdere informazioni. fatto
+Aggiungere un record in coda; fatto
+Visualizzare dei dati mostrando tre campi significativi a scelta;
+Ricercare un record per campo chiave a scelta (se esiste, utilizzare il campo che contiene dati univoci); fatto
+Modificare un record;
+Cancellare logicamente un record;
+*/
+
+
 namespace Elaborazione_dati_CSV
 {
     public partial class Form1 : Form
@@ -45,7 +58,7 @@ namespace Elaborazione_dati_CSV
         //estraggo i valori di dato da una stringa
         public static dato FromString(string datiStringa, string sep = ";")
         {
-            dato p =  new dato();
+            dato p = new dato();
             String[] fields = datiStringa.Split(sep[0]);
             p.nome = fields[0];
             p.link = fields[1];
@@ -61,7 +74,7 @@ namespace Elaborazione_dati_CSV
         //format stringa dato "dato"
         public string FileString(dato p)
         {
-            return (p.nome + ";" + p.link + ";" + p.latitudine + ";" + p.longitudine + ";" +p.miovalore + ";" + p.cancellato + ";").PadRight(60);
+            return (p.nome + ";" + p.link + ";" + p.latitudine + ";" + p.longitudine + ";" + p.miovalore + ";" + p.cancellato + ";").PadRight(60);
         }
 
 
@@ -88,11 +101,12 @@ namespace Elaborazione_dati_CSV
             string[] words = new string[6];
 
             line = reader.ReadLine();
+            writer.WriteLine(line);
             line = reader.ReadLine();
 
-            while (line != null) 
+            while (line != null)
             {
-                
+
 
                 fields = line.Split(limite);
                 p.nome = fields[0];
@@ -115,6 +129,24 @@ namespace Elaborazione_dati_CSV
             File.Move(NomeTemp, FileName);
         }
 
+        public int NumeroCampi()
+        {
+            String line;
+
+            Random rand = new Random();
+            StreamReader reader = new StreamReader(FileName);
+
+
+            line = reader.ReadLine();
+            line = reader.ReadLine();
+
+            int NumeroCampi = line.Split(';').Length - 1; //il meno 1 tiene in conto del ; finale
+
+            reader.Close();
+
+            return NumeroCampi;
+        }
+
 
         public int ConteggioMassimo()
         {
@@ -126,6 +158,9 @@ namespace Elaborazione_dati_CSV
             int lenghtMax;
 
             line = reader.ReadLine();
+
+            writer.WriteLine(line);
+
             line = reader.ReadLine();
             lenghtMax = line.Length;
 
@@ -136,7 +171,7 @@ namespace Elaborazione_dati_CSV
                 {
                     lenghtMax = line.Length;
                 }
-                
+
 
                 writer.WriteLine(FileString(p));
 
@@ -162,6 +197,9 @@ namespace Elaborazione_dati_CSV
             StreamWriter writer = new StreamWriter(NomeTemp, true);
 
             line = reader.ReadLine();
+
+            writer.WriteLine(line);
+
             line = reader.ReadLine();
 
             while (line != null)
@@ -197,7 +235,7 @@ namespace Elaborazione_dati_CSV
 
 
                 p = FromString(line);
-                if (p.nome == nome)
+                if (p.nome == nome && p.cancellato == false)
                 {
                     return line;
                 }
@@ -213,10 +251,17 @@ namespace Elaborazione_dati_CSV
             return "Not Found";
         }
 
+
+        public void Aggiungi(string titolo, string link, string lat, string longi, string miovalore, bool canc = false)
+        {
+            string content = titolo + ";" + link + ";" + lat + ";" + longi + ";" + miovalore + ";" + canc + ";";
+            scriviAppend(content, FileName);
+        }
+
         private void LunghezzaMax_Click(object sender, EventArgs e)
         {
             MessageBox.Show("la lunghezza massima è: " + ConteggioMassimo());
-            
+
         }
 
         private void Padding_button_Click(object sender, EventArgs e)
@@ -227,6 +272,17 @@ namespace Elaborazione_dati_CSV
         private void Cerca_button_Click(object sender, EventArgs e)
         {
             MessageBox.Show(Ricerca(nome_textbox.Text));
+        }
+
+        private void CountFields_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Il num. di campi è: " + NumeroCampi());
+
+        }
+
+        private void Append_Click(object sender, EventArgs e)
+        {
+            Aggiungi(titolo_textbox.Text, link_textbox.Text, latitudine_textbox.Text, longitudine_textbox.Text, miovalore_textbox.Text);
         }
     }
 }
