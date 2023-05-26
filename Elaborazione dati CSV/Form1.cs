@@ -15,7 +15,7 @@ contare il numero dei campi che compongono il record. fatto
 calcolare la lunghezza massima dei record presenti (avanzato: indicando anche la lunghezza massima di ogni campo); fatto
 inserire in ogni record un numero di spazi necessari a rendere fissa la dimensione di tutti i record, senza perdere informazioni. fatto
 Aggiungere un record in coda; fatto
-Visualizzare dei dati mostrando tre campi significativi a scelta;
+Visualizzare dei dati mostrando tre campi significativi a scelta; 
 Ricercare un record per campo chiave a scelta (se esiste, utilizzare il campo che contiene dati univoci); fatto
 Modificare un record; fatto
 Cancellare logicamente un record; fatto
@@ -57,6 +57,9 @@ namespace Elaborazione_dati_CSV
 
         public void visualizza()
         {
+            output.Items.Clear();
+
+
             String line;
 
             Random rand = new Random();
@@ -230,6 +233,7 @@ namespace Elaborazione_dati_CSV
 
             while (line != null)
             {
+                p = FromString(line);
 
                 if (titolo == p.nome)
                 {
@@ -269,6 +273,7 @@ namespace Elaborazione_dati_CSV
 
             while (line != null)
             {
+                p = FromString(line);
 
                 if (titolo == p.nome)
                 {
