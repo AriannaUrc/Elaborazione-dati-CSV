@@ -214,36 +214,36 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(387, 394);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 13);
+            this.label6.Size = new System.Drawing.Size(87, 13);
             this.label6.TabIndex = 25;
-            this.label6.Text = "Miovalore";
+            this.label6.Text = "Nuovo miovalore";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(298, 394);
+            this.label7.Location = new System.Drawing.Point(288, 394);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 13);
+            this.label7.Size = new System.Drawing.Size(93, 13);
             this.label7.TabIndex = 24;
-            this.label7.Text = "Longitudine";
+            this.label7.Text = "Nuova longitudine";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(216, 394);
+            this.label8.Location = new System.Drawing.Point(199, 394);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 13);
+            this.label8.Size = new System.Drawing.Size(84, 13);
             this.label8.TabIndex = 23;
-            this.label8.Text = "Latitudine";
+            this.label8.Text = "Nuova latitudine";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(133, 394);
+            this.label9.Location = new System.Drawing.Point(113, 394);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(27, 13);
+            this.label9.Size = new System.Drawing.Size(58, 13);
             this.label9.TabIndex = 22;
-            this.label9.Text = "Link";
+            this.label9.Text = "Nuovo link";
             // 
             // label10
             // 
@@ -256,7 +256,7 @@
             // 
             // miovalore_mod_textbox
             // 
-            this.miovalore_mod_textbox.Location = new System.Drawing.Point(379, 410);
+            this.miovalore_mod_textbox.Location = new System.Drawing.Point(390, 410);
             this.miovalore_mod_textbox.Name = "miovalore_mod_textbox";
             this.miovalore_mod_textbox.Size = new System.Drawing.Size(70, 20);
             this.miovalore_mod_textbox.TabIndex = 20;
@@ -338,6 +338,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.output);

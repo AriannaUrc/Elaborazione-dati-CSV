@@ -135,7 +135,16 @@ namespace Elaborazione_dati_CSV
             string[] words = new string[6];
 
             line = reader.ReadLine();
-            writer.WriteLine(line);
+
+            if (line[line.Length-1] == 'e' && line[line.Length - 4] == 'l') //controlla che l'ultimo capo dica Miovalore
+            {
+                writer.WriteLine(line);
+            }
+            else
+            {
+                writer.WriteLine(line + ";Miovalore");
+            }
+            
             line = reader.ReadLine();
 
             while (line != null)
